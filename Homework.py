@@ -13,11 +13,11 @@ def div(x, y):
 # Task 3: Ensure your program can handle division by zero and other potential errors.
 while True:
     try:
-        num1 = float(input(" First  number: "))
-        num2 = float(input(" Second number: "))
+        num1 = float(input(" First  Number: "))
+        num2 = float(input(" Second Number: "))
         break
     except ValueError:
-        print("Integers Only! Please try again...")
+        print("Numbers Only Please...")
         
 operators = ['add', 'subtract', 'multiply', 'divide']
 operation = input(f"Enter Operation Choice ({", ".join(operators)}): ").lower()
@@ -57,14 +57,15 @@ def remove_item(list):
         print("Nothing to remove!\n")
     else:
         while True:
-            i = int(input("Enter item number to remove ('1' being first on the list): ")) - 1
-            if 0 <= i < len(list):
-                item = list.pop(i)
-                print(item, "removed from the list. Remove another? ", end="")
-            else:
-                print("No such item #! Try again? ", end="")
-            if not input("(enter to quit, 'y' to continue): "):
+            i = int(input("Enter Item Number to be remove or 0 to Exit: ")) - 1
+            if i < 0:
                 break
+            if i >= len(list):
+                print("Item # is too high. Only", len(list), "items are currently on the list.")
+            else:
+                item = list.pop(i)
+                print(item, "removed from the list. Remove another?")
+
 remove_item(test)
 
 # Task 3: Add a function that prints out the entire list in a formatted way.
