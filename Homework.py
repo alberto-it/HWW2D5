@@ -17,7 +17,7 @@ while True:
         num2 = float(input(" Second Number: "))
         break
     except ValueError:
-        print("Numbers Only Please...")
+        print("Numbers Only... Please Start Over")
         
 operators = ['add', 'subtract', 'multiply', 'divide']
 operation = input(f"Enter Operation Choice ({", ".join(operators)}): ").lower()
