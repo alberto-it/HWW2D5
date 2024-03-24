@@ -1,6 +1,9 @@
-# Lesson 5: Assignments | Python Functions
-# 1. The Calculator App
-# Task 1: Create functions for each arithmetic operation.
+print()
+"""
+Lesson 5: Assignments | Python Functions
+1. The Calculator App
+Task 1: Create functions for each arithmetic operation.
+"""
 def add(x, y):
     return x + y
 def diff(x, y):
@@ -9,8 +12,10 @@ def times(x, y):
     return x * y
 def div(x, y):
     return x / y
+"""
 # Task 2: Implement user input to receive numbers and an operation choice.
 # Task 3: Ensure your program can handle division by zero and other potential errors.
+"""
 while True:
     try:
         num1 = float(input(" First  Number: "))
@@ -37,9 +42,10 @@ else:
     result = "Error | Invalid Operation Choice!"
 
 print(f"Result: {result}\n")
-
-# 2. The Shopping List Maker
-# Task 1: Write a function that lets the user add items to a list.
+"""
+2. The Shopping List Maker
+Task 1: Write a function that lets the user add items to a list.
+"""
 def add_item(list):
     while True:
         item = input("Enter item to add to list (or enter nothing to quit): ")
@@ -50,25 +56,28 @@ def add_item(list):
 test = []
 add_item(test)
 print()
-
-# Task 2: Include a feature to remove items from the list.
+"""
+Task 2: Include a feature to remove items from the list.
+"""
 def remove_item(list):
-    if not list:
-        print("Nothing to remove!\n")
-    else:
-        while True:
-            i = int(input("Enter Item Number to be remove or 0 to Exit: ")) - 1
-            if i < 0:
-                break
-            if i >= len(list):
-                print("Item # is too high. Only", len(list), "items are currently on the list.")
-            else:
-                item = list.pop(i)
-                print(item, "removed from the list. Remove another?")
+    while True:
+        if not list:
+            print("List is Empty\n")
+            break
+        i = int(input("Enter Item Number to be remove or 0 to Exit: ")) - 1
+        if i < 0:
+            break
+        if i >= len(list):
+            print("Item # is too high. Only", len(list), "items are currently on the list.")
+        else:
+            item = list.pop(i)
+            print(item, "removed from the list.", "Remove another?" if list else "")
 
 remove_item(test)
-
-# Task 3: Add a function that prints out the entire list in a formatted way.
+print()
+"""
+Task 3: Add a function that prints out the entire list in a formatted way.
+"""
 def print_list(list):
     if list:
         print("\nList:")
@@ -79,28 +88,27 @@ def print_list(list):
         
 print_list(test)
 print()
-
-# 3. The Grade Analyzer
-# Objective:
-# The aim of this assignment is to analyze a set of grades and provide statistics.
-# Task 1: Code a function to calculate the average grade.
+"""
+3. The Grade Analyzer
+Task 1: Code a function to calculate the average grade.
+"""
 def avg_grade(*grades):
     return sum([grade for grade in grades])/len(grades) if grades else None
 
 print(avg_grade(95, 55, 75, 81), "\n", avg_grade(), "\n")
-# Task 2: Implement a function to find the highest and lowest grade.
-
+"""
+Task 2: Implement a function to find the highest and lowest grade.
+"""
 def high_low(*grades):
     if not grades:
-        return None, None
-    
+        return None, None 
     return max(grades), min(grades)  
 
 high, low = high_low(95, 55, 75, 81)
 print("Highest:", high, "\nLowest:", low, "\n")
-
-# Task 3: Create a feature that categorizes grades into letter grades (A, B, C, etc.).
-
+"""
+Task 3: Create a feature that categorizes grades into letter grades (A, B, C, etc.).
+"""
 def letter_grade(grade):
     if grade >= 90:
         return 'A'
